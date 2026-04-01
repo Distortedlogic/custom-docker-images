@@ -19,4 +19,6 @@ FROM pgvector/pgvector:pg17
 COPY --from=builder /usr/lib/postgresql/17/lib/pg_textsearch.so /usr/lib/postgresql/17/lib/
 COPY --from=builder /usr/share/postgresql/17/extension/pg_textsearch* /usr/share/postgresql/17/extension/
 
+RUN echo "shared_preload_libraries = 'pg_textsearch'" >> /usr/share/postgresql/postgresql.conf.sample
+
 COPY init-extensions.sql /docker-entrypoint-initdb.d/
