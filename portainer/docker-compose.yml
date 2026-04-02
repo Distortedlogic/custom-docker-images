@@ -1,0 +1,17 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - "9443:9443"
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${XDG_RUNTIME_DIR}/podman/podman.sock:/run/podman/podman.sock
+      - portainer_data:/data
+    security_opt:
+      - label:disable
+    restart: unless-stopped
+
+volumes:
+  portainer_data:

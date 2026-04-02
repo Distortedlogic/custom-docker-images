@@ -1,0 +1,12 @@
+services:
+  nutify:
+    image: dartsteven/nutify:amd64-latest
+    container_name: nutify
+    network_mode: host
+    volumes:
+      - ./logs:/app/nutify/logs:z
+      - ./instance:/app/nutify/instance:z
+      - ./nut:/etc/nut:z
+    environment:
+      - SECRET_KEY=${NUTIFY_SECRET_KEY:-changeme}
+    restart: unless-stopped
