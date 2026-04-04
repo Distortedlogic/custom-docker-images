@@ -1,0 +1,36 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "postgres-hybrid-search/**"
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: [self-hosted]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: postgres-hybrid-search
+            context: postgres-hybrid-search
+            tag: "17-latest"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker registry
+        run: |
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_HOST_PORT }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t ${{ secrets.REGISTRY_HOST_PORT }}/${{ matrix.image }}:${{ matrix.tag }} \
+            ${{ matrix.context }}/
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.REGISTRY_HOST_PORT }}/${{ matrix.image }}:${{ matrix.tag }}
