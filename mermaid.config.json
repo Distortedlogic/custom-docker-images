@@ -1,0 +1,18 @@
+{
+  "theme": "base",
+  "flowchart": {
+    "wrappingWidth": 99999
+  },
+  "themeCSS": ".label foreignObject div { text-align: left !important; } .node.teal>rect,.node.teal>polygon { stroke: #4ec9b0 !important; } .node.blue>rect,.node.blue>polygon { stroke: #569cd6 !important; } .node.purple>rect,.node.purple>polygon { stroke: #c586c0 !important; } .node.orange>rect,.node.orange>polygon { stroke: #ff6600 !important; } .node.yellow>rect,.node.yellow>polygon { stroke: #dcdcaa !important; } .node.red>rect,.node.red>polygon { stroke: #d16969 !important; } .node.cyan>rect,.node.cyan>polygon { stroke: #4fc1ff !important; } .node.bluelight>rect { stroke: #569cd6 !important; } .node.bluelight .label { color: #9cdcfe !important; }",
+  "themeVariables": {
+    "background": "#000000",
+    "primaryColor": "#000000",
+    "primaryTextColor": "#ffffff",
+    "primaryBorderColor": "#6fc3df",
+    "lineColor": "#6fc3df",
+    "clusterBkg": "#0a0a0a",
+    "clusterBorder": "#6fc3df",
+    "fontSize": "14px",
+    "fontFamily": "monospace"
+  }
+}

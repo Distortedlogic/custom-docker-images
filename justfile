@@ -1,3 +1,5 @@
+import '../common.justfile'
+
 set dotenv-load := true
 
 registry := env("REGISTRY_URL", "docker-registry.jeremymeek.dev")
