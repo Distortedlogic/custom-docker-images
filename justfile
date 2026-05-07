@@ -1,5 +1,4 @@
-import '../common.justfile'
-
+import '../dioxus-common/justfiles/common.justfile'
 set dotenv-load := true
 
 registry := env("REGISTRY_URL", "docker-registry.jeremymeek.dev")
