@@ -1,0 +1,109 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# Canonical: source defaults to 2-space LF UTF-8; carve-outs below cover
+# generated / tool-managed / formatter-owned files so `lang lint --stack
+# editorconfig` (hk `ec`) passes across every repo.
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Icons.
+[*.ico]
+insert_final_newline = false
+
+# Languages owned by their own formatter (rustfmt / black / ruff / prettier).
+[*.rs]
+indent_style = unset
+indent_size = unset
+trim_trailing_whitespace = unset
+
+[*.py]
+indent_size = unset
+
+[*.md]
+indent_size = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+
+[*.{html,htm,css}]
+indent_size = unset
+indent_style = unset
+
+# Container / shell / conf — heredocs, line-continuations, tool-managed.
+[{Dockerfile,Dockerfile.*}]
+indent_size = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+
+[*.sh]
+indent_size = unset
+
+[*.{conf,users}]
+insert_final_newline = unset
+indent_size = unset
+
+# Line-delimited JSON often appended without trailing newline.
+[*.{jsonl,ndjson}]
+insert_final_newline = unset
+indent_size = unset
+indent_style = unset
+
+# Generated / tool-managed lockfiles + notebooks + patches + diffs.
+[{Cargo.lock,*.lock,pnpm-lock.yaml,package-lock.json,yarn.lock,poetry.lock,uv.lock,bun.lockb}]
+indent_size = unset
+indent_style = unset
+
+[*.ipynb]
+indent_size = unset
+indent_style = unset
+
+[*.{patch,diff}]
+indent_size = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+
+# Verbatim upstream text — licenses, plaintext logs / crash dumps.
+[LICENSE*]
+indent_size = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+
+[*.txt]
+indent_size = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+
+# Tabular data — CSV/TSV are data, often CRLF from spreadsheets.
+[*.{csv,tsv}]
+indent_size = unset
+indent_style = unset
+end_of_line = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+
+# Empty placeholders.
+[.gitkeep]
+insert_final_newline = unset
+
+# Vendored / generated / build-output trees and minified bundles.
+[{**/assets/**,**/dist/**,**/build/**,**/vendor/**,**/node_modules/**,**/target/**,**/_archive/**}]
+indent_style = unset
+indent_size = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+end_of_line = unset
+
+[*.min.{js,css}]
+indent_style = unset
+indent_size = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
