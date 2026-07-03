@@ -1,0 +1,9 @@
+.env
+media/
+config/frigate.db
+config/frigate.db-shm
+config/frigate.db-wal
+config/model_cache/
+config/.vector_cache/
+config/exports/
+config/backups/

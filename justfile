@@ -26,3 +26,14 @@ up-portainer:
 
 down-portainer:
     docker-compose -f portainer/docker-compose.yml down
+
+up-frigate:
+    cd frigate && docker-compose up -d
+
+down-frigate:
+    cd frigate && docker-compose down
+
+logs-frigate:
+    cd frigate && docker-compose logs -f --tail=200
+
+restart-frigate: down-frigate up-frigate

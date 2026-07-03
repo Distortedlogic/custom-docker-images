@@ -1,0 +1,23 @@
+services:
+  frigate:
+    image: ghcr.io/blakeblackshear/frigate:stable-tensorrt
+    container_name: frigate
+    restart: unless-stopped
+    shm_size: 512mb
+    runtime: nvidia
+    environment:
+      - FRIGATE_RTSP_PASSWORD=${FRIGATE_RTSP_PASSWORD}
+      - FRIGATE_CAMERA_PASSWORD=${FRIGATE_CAMERA_PASSWORD}
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    volumes:
+      - ./config:/config:z
+      - ./media:/media/frigate:z
+      - /etc/localtime:/etc/localtime:ro
+    tmpfs:
+      - /tmp/cache:size=1000000000
+    ports:
+      - "8971:8971"
+      - "8554:8554"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
